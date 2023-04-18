@@ -6,7 +6,9 @@ function App() {
   return (
     <>
       <div className='w-full h-full'>
-        <RatingPage />
+        <RatingPage 
+        name={'محمد مهدی مرندی تهرانی'}
+        />
       </div>
     </>
   );

@@ -14,21 +14,24 @@ const RatingStars: React.FC<RatingProps> = ({ value, onChange, disabled }) => {
       onChange(newValue);
     }
   };
- 
+
 
   return (
-    <>
-      <Box sx={{ width: "100%", display: "flex", alignItems: "center" }}>
-        <Rating
-          name="customized"
-          value={value}
-          onChange={handleChange}
-          disabled={disabled}
-          size="large"
-        />
-      </Box> 
-      {console.log(value)}
-    </>
+    <Box sx={{ width: "100%", display: "flex", alignItems: "center" }}>
+      <Rating
+        name="customized"
+        value={value}
+        onChange={handleChange}
+        disabled={disabled}
+        size="large"
+        sx={{
+          "& > .MuiRating-icon": {
+            margin: '18px',
+            fontSize : '3ram'
+          }
+        }}
+      />
+    </Box>
   );
 };
 
