@@ -3,6 +3,7 @@ import RatingStars from "../../Components/Rating";
 import { useState } from 'react';
 import { positivePoints, negativePoints } from "../../staticData/props";
 import { satisfaction } from "../../staticData/props";
+import { toast } from "react-toastify"
 
 interface Iprops {
     id: number
@@ -18,6 +19,8 @@ interface IratingResult {
 }
 
 const RatingPage = ({ name }: any) => {
+
+    const successfullSubmitResult = () => toast("نظر شما با موفقیت ثبت شد.", { theme: 'colored', type: 'success', className: 'myTostify' });
 
     const [ratingResult, setRatingResult] = useState<IratingResult | null>(null)
 
@@ -132,13 +135,16 @@ const RatingPage = ({ name }: any) => {
                     color="greenBlue"
                     variant="primary"
                     className="w-full lg:w-[70%] lg:text-[18px] xl:text-[20px] mt-auto lg:mt-0 order-5"
-                    onClick={() => setRatingResult({
+                    onClick={() => {
+                        setRatingResult({
                         name: name,
                         rate: rating,
                         positivePoints: selectedPositiveProps.map(item => item.title) ,
                         negativePoints: selectedNegativeProps.map(item => item.title),
                         description: descriptionInputVal
-                    })}
+                    })
+                    successfullSubmitResult()
+                }}
                 >ثبت بازخورد</Button>
 
             </div > 
