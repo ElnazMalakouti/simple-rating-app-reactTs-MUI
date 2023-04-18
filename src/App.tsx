@@ -5,7 +5,9 @@ function App() {
 
   return (
     <>
-      <RatingPage/>
+      <div className='w-full h-full'>
+        <RatingPage />
+      </div>
     </>
   );
 }
